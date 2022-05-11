@@ -6,9 +6,10 @@ class BillingClient:
         self.base_url = base_url
         self.session = requests.Session()
         self.session.headers.update({
-            'Authorization': 'Bearer ' + . api_key,
+            'Authorization': 'Bearer ' + api_key,
             'Content-Type': 'application/json'
         })
+
 
     def request(self, method, path, params={}, body={}):
         r = self.session.request(method, self.base_url + path, data=data, params=params)
@@ -16,211 +17,212 @@ class BillingClient:
             raise Exception("Status code is " + r.status_code + "!")
         return r.json()
 
-    def getInvoiceFile(self, id, queryParams={}):
-        return self.request("GET", "/invoices/{id}/file".format(id=id), queryParams);
 
+    def get_invoice_file(self, id, query_params={}):
+        return self.request("GET", "/invoices/{id}/file".format(id=id), query_params);
 
-    def createInvoicePosition(self, id, body, queryParams={}):
-        return self.request("POST", "/invoices/{id}/positions".format(id=id), queryParams, body);
 
+    def create_invoice_position(self, id, body, query_params={}):
+        return self.request("POST", "/invoices/{id}/positions".format(id=id), query_params, body);
 
-    def getInvoicePositions(self, id, queryParams={}):
-        return self.request("GET", "/invoices/{id}/positions".format(id=id), queryParams);
 
+    def get_invoice_positions(self, id, query_params={}):
+        return self.request("GET", "/invoices/{id}/positions".format(id=id), query_params);
 
-    def getBillingPosition(self, id, queryParams={}):
-        return self.request("GET", "/billing-positions/{id}".format(id=id), queryParams);
 
+    def get_billing_position(self, id, query_params={}):
+        return self.request("GET", "/billing-positions/{id}".format(id=id), query_params);
 
-    def deleteBillingPosition(self, id, queryParams={}):
-        return self.request("DELETE", "/billing-positions/{id}".format(id=id), queryParams);
 
+    def delete_billing_position(self, id, query_params={}):
+        return self.request("DELETE", "/billing-positions/{id}".format(id=id), query_params);
 
-    def updateBillingPosition(self, id, body, queryParams={}):
-        return self.request("PUT", "/billing-positions/{id}".format(id=id), queryParams, body);
 
+    def update_billing_position(self, id, body, query_params={}):
+        return self.request("PUT", "/billing-positions/{id}".format(id=id), query_params, body);
 
-    def createBillingPosition(self, body, queryParams={}):
-        return self.request("POST", "/billing-positions".format(), queryParams, body);
 
+    def create_billing_position(self, body, query_params={}):
+        return self.request("POST", "/billing-positions", query_params, body);
 
-    def getBillingPositions(self, queryParams={}):
-        return self.request("GET", "/billing-positions".format(), queryParams);
 
+    def get_billing_positions(self, query_params={}):
+        return self.request("GET", "/billing-positions", query_params);
 
-    def createCustomer(self, body, queryParams={}):
-        return self.request("POST", "/customers".format(), queryParams, body);
 
+    def create_customer(self, body, query_params={}):
+        return self.request("POST", "/customers", query_params, body);
 
-    def getCustomers(self, queryParams={}):
-        return self.request("GET", "/customers".format(), queryParams);
 
+    def get_customers(self, query_params={}):
+        return self.request("GET", "/customers", query_params);
 
-    def getDebits(self, queryParams={}):
-        return self.request("GET", "/debits".format(), queryParams);
 
+    def get_debits(self, query_params={}):
+        return self.request("GET", "/debits", query_params);
 
-    def getCustomer(self, id, queryParams={}):
-        return self.request("GET", "/customers/{id}".format(id=id), queryParams);
 
+    def get_customer(self, id, query_params={}):
+        return self.request("GET", "/customers/{id}".format(id=id), query_params);
 
-    def updateCustomer(self, id, body, queryParams={}):
-        return self.request("PUT", "/customers/{id}".format(id=id), queryParams, body);
 
+    def update_customer(self, id, body, query_params={}):
+        return self.request("PUT", "/customers/{id}".format(id=id), query_params, body);
 
-    def getOnlinePayments(self, queryParams={}):
-        return self.request("GET", "/online-payments".format(), queryParams);
 
+    def get_online_payments(self, query_params={}):
+        return self.request("GET", "/online-payments", query_params);
 
-    def getServiceContractPosition(self, contract_id, id, queryParams={}):
-        return self.request("GET", "/service-contracts/{contract_id}/positions/{id}".format(contract_id=contract_id, id=id), queryParams);
 
+    def get_service_contract_position(self, contract_id, id, query_params={}):
+        return self.request("GET", "/service-contracts/{contract_id}/positions/{id}".format(contract_id=contract_id, id=id), query_params);
 
-    def deleteServiceContractPosition(self, contract_id, id, queryParams={}):
-        return self.request("DELETE", "/service-contracts/{contract_id}/positions/{id}".format(contract_id=contract_id, id=id), queryParams);
 
+    def delete_service_contract_position(self, contract_id, id, query_params={}):
+        return self.request("DELETE", "/service-contracts/{contract_id}/positions/{id}".format(contract_id=contract_id, id=id), query_params);
 
-    def updateServiceContractPosition(self, contract_id, id, body, queryParams={}):
-        return self.request("PUT", "/service-contracts/{contract_id}/positions/{id}".format(contract_id=contract_id, id=id), queryParams, body);
 
+    def update_service_contract_position(self, contract_id, id, body, query_params={}):
+        return self.request("PUT", "/service-contracts/{contract_id}/positions/{id}".format(contract_id=contract_id, id=id), query_params, body);
 
-    def createInvoice(self, body, queryParams={}):
-        return self.request("POST", "/invoices".format(), queryParams, body);
 
+    def create_invoice(self, body, query_params={}):
+        return self.request("POST", "/invoices", query_params, body);
 
-    def getInvoices(self, queryParams={}):
-        return self.request("GET", "/invoices".format(), queryParams);
 
+    def get_invoices(self, query_params={}):
+        return self.request("GET", "/invoices", query_params);
 
-    def createServiceContractPosition(self, contract_id, body, queryParams={}):
-        return self.request("POST", "/service-contracts/{contract_id}/positions".format(contract_id=contract_id), queryParams, body);
 
+    def create_service_contract_position(self, contract_id, body, query_params={}):
+        return self.request("POST", "/service-contracts/{contract_id}/positions".format(contract_id=contract_id), query_params, body);
 
-    def getServiceContractPositions(self, contract_id, queryParams={}):
-        return self.request("GET", "/service-contracts/{contract_id}/positions".format(contract_id=contract_id), queryParams);
 
+    def get_service_contract_positions(self, contract_id, query_params={}):
+        return self.request("GET", "/service-contracts/{contract_id}/positions".format(contract_id=contract_id), query_params);
 
-    def getOfferPosition(self, id, queryParams={}):
-        return self.request("GET", "/offer-positions/{id}".format(id=id), queryParams);
 
+    def get_offer_position(self, id, query_params={}):
+        return self.request("GET", "/offer-positions/{id}".format(id=id), query_params);
 
-    def deleteOfferPosition(self, id, queryParams={}):
-        return self.request("DELETE", "/offer-positions/{id}".format(id=id), queryParams);
 
+    def delete_offer_position(self, id, query_params={}):
+        return self.request("DELETE", "/offer-positions/{id}".format(id=id), query_params);
 
-    def updateOfferPosition(self, id, body, queryParams={}):
-        return self.request("PUT", "/offer-positions/{id}".format(id=id), queryParams, body);
 
+    def update_offer_position(self, id, body, query_params={}):
+        return self.request("PUT", "/offer-positions/{id}".format(id=id), query_params, body);
 
-    def getPaymentReminder(self, id, queryParams={}):
-        return self.request("GET", "/payment-reminders/{id}".format(id=id), queryParams);
 
+    def get_payment_reminder(self, id, query_params={}):
+        return self.request("GET", "/payment-reminders/{id}".format(id=id), query_params);
 
-    def updatePaymentReminder(self, id, body, queryParams={}):
-        return self.request("PUT", "/payment-reminders/{id}".format(id=id), queryParams, body);
 
+    def update_payment_reminder(self, id, body, query_params={}):
+        return self.request("PUT", "/payment-reminders/{id}".format(id=id), query_params, body);
 
-    def createDebitMandate(self, body, queryParams={}):
-        return self.request("POST", "/debit-mandates".format(), queryParams, body);
 
+    def create_debit_mandate(self, body, query_params={}):
+        return self.request("POST", "/debit-mandates", query_params, body);
 
-    def getDebitMandates(self, queryParams={}):
-        return self.request("GET", "/debit-mandates".format(), queryParams);
 
+    def get_debit_mandates(self, query_params={}):
+        return self.request("GET", "/debit-mandates", query_params);
 
-    def getBankTransactions(self, queryParams={}):
-        return self.request("GET", "/bank-transactions".format(), queryParams);
 
+    def get_bank_transactions(self, query_params={}):
+        return self.request("GET", "/bank-transactions", query_params);
 
-    def getDebitMandate(self, id, queryParams={}):
-        return self.request("GET", "/debit-mandates/{id}".format(id=id), queryParams);
 
+    def get_debit_mandate(self, id, query_params={}):
+        return self.request("GET", "/debit-mandates/{id}".format(id=id), query_params);
 
-    def getBankTransaction(self, id, queryParams={}):
-        return self.request("GET", "/bank-transactions/{id}".format(id=id), queryParams);
 
+    def get_bank_transaction(self, id, query_params={}):
+        return self.request("GET", "/bank-transactions/{id}".format(id=id), query_params);
 
-    def getOffer(self, id, queryParams={}):
-        return self.request("GET", "/offers/{id}".format(id=id), queryParams);
 
+    def get_offer(self, id, query_params={}):
+        return self.request("GET", "/offers/{id}".format(id=id), query_params);
 
-    def updateOffer(self, id, body, queryParams={}):
-        return self.request("PUT", "/offers/{id}".format(id=id), queryParams, body);
 
+    def update_offer(self, id, body, query_params={}):
+        return self.request("PUT", "/offers/{id}".format(id=id), query_params, body);
 
-    def getInvoicePosition(self, invoice_id, id, queryParams={}):
-        return self.request("GET", "/invoices/{invoice_id}/positions/{id}".format(invoice_id=invoice_id, id=id), queryParams);
 
+    def get_invoice_position(self, invoice_id, id, query_params={}):
+        return self.request("GET", "/invoices/{invoice_id}/positions/{id}".format(invoice_id=invoice_id, id=id), query_params);
 
-    def deleteInvoicePosition(self, invoice_id, id, queryParams={}):
-        return self.request("DELETE", "/invoices/{invoice_id}/positions/{id}".format(invoice_id=invoice_id, id=id), queryParams);
 
+    def delete_invoice_position(self, invoice_id, id, query_params={}):
+        return self.request("DELETE", "/invoices/{invoice_id}/positions/{id}".format(invoice_id=invoice_id, id=id), query_params);
 
-    def updateInvoicePosition(self, invoice_id, id, body, queryParams={}):
-        return self.request("PUT", "/invoices/{invoice_id}/positions/{id}".format(invoice_id=invoice_id, id=id), queryParams, body);
 
+    def update_invoice_position(self, invoice_id, id, body, query_params={}):
+        return self.request("PUT", "/invoices/{invoice_id}/positions/{id}".format(invoice_id=invoice_id, id=id), query_params, body);
 
-    def createServiceContract(self, body, queryParams={}):
-        return self.request("POST", "/service-contracts".format(), queryParams, body);
 
+    def create_service_contract(self, body, query_params={}):
+        return self.request("POST", "/service-contracts", query_params, body);
 
-    def getServiceContracts(self, queryParams={}):
-        return self.request("GET", "/service-contracts".format(), queryParams);
 
+    def get_service_contracts(self, query_params={}):
+        return self.request("GET", "/service-contracts", query_params);
 
-    def getInvoice(self, id, queryParams={}):
-        return self.request("GET", "/invoices/{id}".format(id=id), queryParams);
 
+    def get_invoice(self, id, query_params={}):
+        return self.request("GET", "/invoices/{id}".format(id=id), query_params);
 
-    def deleteInvoice(self, id, queryParams={}):
-        return self.request("DELETE", "/invoices/{id}".format(id=id), queryParams);
 
+    def delete_invoice(self, id, query_params={}):
+        return self.request("DELETE", "/invoices/{id}".format(id=id), query_params);
 
-    def updateInvoice(self, id, body, queryParams={}):
-        return self.request("PUT", "/invoices/{id}".format(id=id), queryParams, body);
 
+    def update_invoice(self, id, body, query_params={}):
+        return self.request("PUT", "/invoices/{id}".format(id=id), query_params, body);
 
-    def getOnlinePayment(self, id, queryParams={}):
-        return self.request("GET", "/online-payments/{id}".format(id=id), queryParams);
 
+    def get_online_payment(self, id, query_params={}):
+        return self.request("GET", "/online-payments/{id}".format(id=id), query_params);
 
-    def getDebit(self, id, queryParams={}):
-        return self.request("GET", "/debits/{id}".format(id=id), queryParams);
 
+    def get_debit(self, id, query_params={}):
+        return self.request("GET", "/debits/{id}".format(id=id), query_params);
 
-    def createOffer(self, body, queryParams={}):
-        return self.request("POST", "/offers".format(), queryParams, body);
 
+    def create_offer(self, body, query_params={}):
+        return self.request("POST", "/offers", query_params, body);
 
-    def getOffers(self, queryParams={}):
-        return self.request("GET", "/offers".format(), queryParams);
 
+    def get_offers(self, query_params={}):
+        return self.request("GET", "/offers", query_params);
 
-    def getServiceContract(self, id, queryParams={}):
-        return self.request("GET", "/service-contracts/{id}".format(id=id), queryParams);
 
+    def get_service_contract(self, id, query_params={}):
+        return self.request("GET", "/service-contracts/{id}".format(id=id), query_params);
 
-    def deleteServiceContract(self, id, queryParams={}):
-        return self.request("DELETE", "/service-contracts/{id}".format(id=id), queryParams);
 
+    def delete_service_contract(self, id, query_params={}):
+        return self.request("DELETE", "/service-contracts/{id}".format(id=id), query_params);
 
-    def updateServiceContract(self, id, body, queryParams={}):
-        return self.request("PUT", "/service-contracts/{id}".format(id=id), queryParams, body);
 
+    def update_service_contract(self, id, body, query_params={}):
+        return self.request("PUT", "/service-contracts/{id}".format(id=id), query_params, body);
 
-    def createOfferPosition(self, body, queryParams={}):
-        return self.request("POST", "/offer-positions".format(), queryParams, body);
 
+    def create_offer_position(self, body, query_params={}):
+        return self.request("POST", "/offer-positions", query_params, body);
 
-    def getOfferPositions(self, queryParams={}):
-        return self.request("GET", "/offer-positions".format(), queryParams);
 
+    def get_offer_positions(self, query_params={}):
+        return self.request("GET", "/offer-positions", query_params);
 
-    def createPaymentReminder(self, body, queryParams={}):
-        return self.request("POST", "/payment-reminders".format(), queryParams, body);
 
+    def create_payment_reminder(self, body, query_params={}):
+        return self.request("POST", "/payment-reminders", query_params, body);
 
-    def getPaymentReminders(self, queryParams={}):
-        return self.request("GET", "/payment-reminders".format(), queryParams);
+
+    def get_payment_reminders(self, query_params={}):
+        return self.request("GET", "/payment-reminders", query_params);
 
 
