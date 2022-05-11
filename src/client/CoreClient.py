@@ -6,9 +6,10 @@ class CoreClient:
         self.base_url = base_url
         self.session = requests.Session()
         self.session.headers.update({
-            'Authorization': 'Bearer ' + . api_key,
+            'Authorization': 'Bearer ' + api_key,
             'Content-Type': 'application/json'
         })
+
 
     def request(self, method, path, params={}, body={}):
         r = self.session.request(method, self.base_url + path, data=data, params=params)
@@ -16,631 +17,632 @@ class CoreClient:
             raise Exception("Status code is " + r.status_code + "!")
         return r.json()
 
-    def createSSHKey(self, body, queryParams={}):
-        return self.request("POST", "/ssh-keys".format(), queryParams, body);
 
+    def create_s_s_h_key(self, body, query_params={}):
+        return self.request("POST", "/ssh-keys", query_params, body);
 
-    def getSSHKeys(self, queryParams={}):
-        return self.request("GET", "/ssh-keys".format(), queryParams);
 
+    def get_s_s_h_keys(self, query_params={}):
+        return self.request("GET", "/ssh-keys", query_params);
 
-    def createServerPriceRange(self, body, queryParams={}):
-        return self.request("POST", "/server-price-ranges".format(), queryParams, body);
 
+    def create_server_price_range(self, body, query_params={}):
+        return self.request("POST", "/server-price-ranges", query_params, body);
 
-    def getServerPriceRanges(self, queryParams={}):
-        return self.request("GET", "/server-price-ranges".format(), queryParams);
 
+    def get_server_price_ranges(self, query_params={}):
+        return self.request("GET", "/server-price-ranges", query_params);
 
-    def startServer(self, id, queryParams={}):
-        return self.request("POST", "/servers/{id}/start".format(id=id), queryParams);
 
+    def start_server(self, id, query_params={}):
+        return self.request("POST", "/servers/{id}/start".format(id=id), query_params);
 
-    def createAvailabilityZone(self, body, queryParams={}):
-        return self.request("POST", "/availability-zones".format(), queryParams, body);
 
+    def create_availability_zone(self, body, query_params={}):
+        return self.request("POST", "/availability-zones", query_params, body);
 
-    def getAvailabilityZones(self, queryParams={}):
-        return self.request("GET", "/availability-zones".format(), queryParams);
 
+    def get_availability_zones(self, query_params={}):
+        return self.request("GET", "/availability-zones", query_params);
 
-    def getServerTemplate(self, id, queryParams={}):
-        return self.request("GET", "/server-templates/{id}".format(id=id), queryParams);
 
+    def get_server_template(self, id, query_params={}):
+        return self.request("GET", "/server-templates/{id}".format(id=id), query_params);
 
-    def shutdownServer(self, id, queryParams={}):
-        return self.request("POST", "/servers/{id}/shutdown".format(id=id), queryParams);
 
+    def shutdown_server(self, id, query_params={}):
+        return self.request("POST", "/servers/{id}/shutdown".format(id=id), query_params);
 
-    def getServerFirewall(self, id, queryParams={}):
-        return self.request("GET", "/server-firewalls/{id}".format(id=id), queryParams);
 
+    def get_server_firewall(self, id, query_params={}):
+        return self.request("GET", "/server-firewalls/{id}".format(id=id), query_params);
 
-    def deleteServerFirewall(self, id, queryParams={}):
-        return self.request("DELETE", "/server-firewalls/{id}".format(id=id), queryParams);
 
+    def delete_server_firewall(self, id, query_params={}):
+        return self.request("DELETE", "/server-firewalls/{id}".format(id=id), query_params);
 
-    def getServer(self, id, queryParams={}):
-        return self.request("GET", "/servers/{id}".format(id=id), queryParams);
 
+    def get_server(self, id, query_params={}):
+        return self.request("GET", "/servers/{id}".format(id=id), query_params);
 
-    def deleteServer(self, id, queryParams={}):
-        return self.request("DELETE", "/servers/{id}".format(id=id), queryParams);
 
+    def delete_server(self, id, query_params={}):
+        return self.request("DELETE", "/servers/{id}".format(id=id), query_params);
 
-    def updateServer(self, id, body, queryParams={}):
-        return self.request("PUT", "/servers/{id}".format(id=id), queryParams, body);
 
+    def update_server(self, id, body, query_params={}):
+        return self.request("PUT", "/servers/{id}".format(id=id), query_params, body);
 
-    def getServerStorageClass(self, id, queryParams={}):
-        return self.request("GET", "/server-storage-classes/{id}".format(id=id), queryParams);
 
+    def get_server_storage_class(self, id, query_params={}):
+        return self.request("GET", "/server-storage-classes/{id}".format(id=id), query_params);
 
-    def restartServer(self, id, queryParams={}):
-        return self.request("POST", "/servers/{id}/restart".format(id=id), queryParams);
 
+    def restart_server(self, id, query_params={}):
+        return self.request("POST", "/servers/{id}/restart".format(id=id), query_params);
 
-    def restoreServer(self, id, body, queryParams={}):
-        return self.request("POST", "/servers/{id}/restore".format(id=id), queryParams, body);
 
+    def restore_server(self, id, body, query_params={}):
+        return self.request("POST", "/servers/{id}/restore".format(id=id), query_params, body);
 
-    def getSSLOrganisation(self, id, queryParams={}):
-        return self.request("GET", "/ssl/organisations/{id}".format(id=id), queryParams);
 
+    def get_s_s_l_organisation(self, id, query_params={}):
+        return self.request("GET", "/ssl/organisations/{id}".format(id=id), query_params);
 
-    def deleteSSLOrganisation(self, id, queryParams={}):
-        return self.request("DELETE", "/ssl/organisations/{id}".format(id=id), queryParams);
 
+    def delete_s_s_l_organisation(self, id, query_params={}):
+        return self.request("DELETE", "/ssl/organisations/{id}".format(id=id), query_params);
 
-    def getServerAction(self, id, action_id, queryParams={}):
-        return self.request("GET", "/servers/{id}/actions/{action_id}".format(id=id, action_id=action_id), queryParams);
 
+    def get_server_action(self, id, action_id, query_params={}):
+        return self.request("GET", "/servers/{id}/actions/{action_id}".format(id=id, action_id=action_id), query_params);
 
-    def getServerGraph(self, id, queryParams={}):
-        return self.request("GET", "/servers/{id}/graph".format(id=id), queryParams);
 
+    def get_server_graph(self, id, query_params={}):
+        return self.request("GET", "/servers/{id}/graph".format(id=id), query_params);
 
-    def getSSLContact(self, id, queryParams={}):
-        return self.request("GET", "/ssl/contacts/{id}".format(id=id), queryParams);
 
+    def get_s_s_l_contact(self, id, query_params={}):
+        return self.request("GET", "/ssl/contacts/{id}".format(id=id), query_params);
 
-    def deleteSSLContact(self, id, queryParams={}):
-        return self.request("DELETE", "/ssl/contacts/{id}".format(id=id), queryParams);
 
+    def delete_s_s_l_contact(self, id, query_params={}):
+        return self.request("DELETE", "/ssl/contacts/{id}".format(id=id), query_params);
 
-    def getDNSZones(self, queryParams={}):
-        return self.request("GET", "/dns/zones".format(), queryParams);
 
+    def get_d_n_s_zones(self, query_params={}):
+        return self.request("GET", "/dns/zones", query_params);
 
-    def recreateServer(self, id, queryParams={}):
-        return self.request("POST", "/servers/{id}/recreate".format(id=id), queryParams);
 
+    def recreate_server(self, id, query_params={}):
+        return self.request("POST", "/servers/{id}/recreate".format(id=id), query_params);
 
-    def createServerFirewall(self, body, queryParams={}):
-        return self.request("POST", "/server-firewalls".format(), queryParams, body);
 
+    def create_server_firewall(self, body, query_params={}):
+        return self.request("POST", "/server-firewalls", query_params, body);
 
-    def getServerFirewalls(self, queryParams={}):
-        return self.request("GET", "/server-firewalls".format(), queryParams);
 
+    def get_server_firewalls(self, query_params={}):
+        return self.request("GET", "/server-firewalls", query_params);
 
-    def getServerFirewallRule(self, id, rule_id, queryParams={}):
-        return self.request("GET", "/server-firewalls/{id}/rules/{rule_id}".format(id=id, rule_id=rule_id), queryParams);
 
+    def get_server_firewall_rule(self, id, rule_id, query_params={}):
+        return self.request("GET", "/server-firewalls/{id}/rules/{rule_id}".format(id=id, rule_id=rule_id), query_params);
 
-    def deleteServerFirewallRule(self, id, rule_id, queryParams={}):
-        return self.request("DELETE", "/server-firewalls/{id}/rules/{rule_id}".format(id=id, rule_id=rule_id), queryParams);
 
+    def delete_server_firewall_rule(self, id, rule_id, query_params={}):
+        return self.request("DELETE", "/server-firewalls/{id}/rules/{rule_id}".format(id=id, rule_id=rule_id), query_params);
 
-    def sendDomainVerification(self, name, queryParams={}):
-        return self.request("POST", "/domains/{name}/verification".format(name=name), queryParams);
 
+    def send_domain_verification(self, name, query_params={}):
+        return self.request("POST", "/domains/{name}/verification".format(name=name), query_params);
 
-    def checkDomainVerification(self, name, queryParams={}):
-        return self.request("GET", "/domains/{name}/verification".format(name=name), queryParams);
 
+    def check_domain_verification(self, name, query_params={}):
+        return self.request("GET", "/domains/{name}/verification".format(name=name), query_params);
 
-    def createServerHost(self, body, queryParams={}):
-        return self.request("POST", "/server-hosts".format(), queryParams, body);
 
+    def create_server_host(self, body, query_params={}):
+        return self.request("POST", "/server-hosts", query_params, body);
 
-    def getServerHosts(self, queryParams={}):
-        return self.request("GET", "/server-hosts".format(), queryParams);
 
+    def get_server_hosts(self, query_params={}):
+        return self.request("GET", "/server-hosts", query_params);
 
-    def createServer(self, body, queryParams={}):
-        return self.request("POST", "/servers".format(), queryParams, body);
 
+    def create_server(self, body, query_params={}):
+        return self.request("POST", "/servers", query_params, body);
 
-    def getServers(self, queryParams={}):
-        return self.request("GET", "/servers".format(), queryParams);
 
+    def get_servers(self, query_params={}):
+        return self.request("GET", "/servers", query_params);
 
-    def deleteServerNetwork(self, id, network_id, queryParams={}):
-        return self.request("DELETE", "/servers/{id}/networks/{network_id}".format(id=id, network_id=network_id), queryParams);
 
+    def delete_server_network(self, id, network_id, query_params={}):
+        return self.request("DELETE", "/servers/{id}/networks/{network_id}".format(id=id, network_id=network_id), query_params);
 
-    def checkDomain(self, name, queryParams={}):
-        return self.request("GET", "/domains/{name}/check".format(name=name), queryParams);
 
+    def check_domain(self, name, query_params={}):
+        return self.request("GET", "/domains/{name}/check".format(name=name), query_params);
 
-    def getDomain(self, name, queryParams={}):
-        return self.request("GET", "/domains/{name}".format(name=name), queryParams);
 
+    def get_domain(self, name, query_params={}):
+        return self.request("GET", "/domains/{name}".format(name=name), query_params);
 
-    def deleteDomain(self, name, queryParams={}):
-        return self.request("DELETE", "/domains/{name}".format(name=name), queryParams);
 
+    def delete_domain(self, name, query_params={}):
+        return self.request("DELETE", "/domains/{name}".format(name=name), query_params);
 
-    def updateDomain(self, name, body, queryParams={}):
-        return self.request("PUT", "/domains/{name}".format(name=name), queryParams, body);
 
+    def update_domain(self, name, body, query_params={}):
+        return self.request("PUT", "/domains/{name}".format(name=name), query_params, body);
 
-    def getDomainHandle(self, code, queryParams={}):
-        return self.request("GET", "/domain-handles/{code}".format(code=code), queryParams);
 
+    def get_domain_handle(self, code, query_params={}):
+        return self.request("GET", "/domain-handles/{code}".format(code=code), query_params);
 
-    def deleteDomainHandle(self, code, queryParams={}):
-        return self.request("DELETE", "/domain-handles/{code}".format(code=code), queryParams);
 
+    def delete_domain_handle(self, code, query_params={}):
+        return self.request("DELETE", "/domain-handles/{code}".format(code=code), query_params);
 
-    def updateDomainHandle(self, code, body, queryParams={}):
-        return self.request("PUT", "/domain-handles/{code}".format(code=code), queryParams, body);
 
+    def update_domain_handle(self, code, body, query_params={}):
+        return self.request("PUT", "/domain-handles/{code}".format(code=code), query_params, body);
 
-    def getAvailabilityZone(self, id, queryParams={}):
-        return self.request("GET", "/availability-zones/{id}".format(id=id), queryParams);
 
+    def get_availability_zone(self, id, query_params={}):
+        return self.request("GET", "/availability-zones/{id}".format(id=id), query_params);
 
-    def updateAvailabilityZone(self, id, body, queryParams={}):
-        return self.request("PUT", "/availability-zones/{id}".format(id=id), queryParams, body);
 
+    def update_availability_zone(self, id, body, query_params={}):
+        return self.request("PUT", "/availability-zones/{id}".format(id=id), query_params, body);
 
-    def createServerBackup(self, body, queryParams={}):
-        return self.request("POST", "/server-backups".format(), queryParams, body);
 
+    def create_server_backup(self, body, query_params={}):
+        return self.request("POST", "/server-backups", query_params, body);
 
-    def getServerBackups(self, queryParams={}):
-        return self.request("GET", "/server-backups".format(), queryParams);
 
+    def get_server_backups(self, query_params={}):
+        return self.request("GET", "/server-backups", query_params);
 
-    def createSubnet(self, body, queryParams={}):
-        return self.request("POST", "/subnets".format(), queryParams, body);
 
+    def create_subnet(self, body, query_params={}):
+        return self.request("POST", "/subnets", query_params, body);
 
-    def getSubnets(self, queryParams={}):
-        return self.request("GET", "/subnets".format(), queryParams);
 
+    def get_subnets(self, query_params={}):
+        return self.request("GET", "/subnets", query_params);
 
-    def createServerVolume(self, body, queryParams={}):
-        return self.request("POST", "/server-volumes".format(), queryParams, body);
 
+    def create_server_volume(self, body, query_params={}):
+        return self.request("POST", "/server-volumes", query_params, body);
 
-    def getServerVolumes(self, queryParams={}):
-        return self.request("GET", "/server-volumes".format(), queryParams);
 
+    def get_server_volumes(self, query_params={}):
+        return self.request("GET", "/server-volumes", query_params);
 
-    def getPleskLicenseType(self, id, queryParams={}):
-        return self.request("GET", "/licenses/plesk-types/{id}".format(id=id), queryParams);
 
+    def get_plesk_license_type(self, id, query_params={}):
+        return self.request("GET", "/licenses/plesk-types/{id}".format(id=id), query_params);
 
-    def createServerStorageClass(self, body, queryParams={}):
-        return self.request("POST", "/server-storage-classes".format(), queryParams, body);
 
+    def create_server_storage_class(self, body, query_params={}):
+        return self.request("POST", "/server-storage-classes", query_params, body);
 
-    def getServerStorageClasses(self, queryParams={}):
-        return self.request("GET", "/server-storage-classes".format(), queryParams);
 
+    def get_server_storage_classes(self, query_params={}):
+        return self.request("GET", "/server-storage-classes", query_params);
 
-    def getServerFirewallMember(self, id, member_id, queryParams={}):
-        return self.request("GET", "/server-firewalls/{id}/members/{member_id}".format(id=id, member_id=member_id), queryParams);
 
+    def get_server_firewall_member(self, id, member_id, query_params={}):
+        return self.request("GET", "/server-firewalls/{id}/members/{member_id}".format(id=id, member_id=member_id), query_params);
 
-    def deleteServerFirewallMember(self, id, member_id, queryParams={}):
-        return self.request("DELETE", "/server-firewalls/{id}/members/{member_id}".format(id=id, member_id=member_id), queryParams);
 
+    def delete_server_firewall_member(self, id, member_id, query_params={}):
+        return self.request("DELETE", "/server-firewalls/{id}/members/{member_id}".format(id=id, member_id=member_id), query_params);
 
-    def search(self, queryParams={}):
-        return self.request("GET", "/search".format(), queryParams);
 
+    def search(self, query_params={}):
+        return self.request("GET", "/search", query_params);
 
-    def getScheduledServerAction(self, id, action_id, queryParams={}):
-        return self.request("GET", "/servers/{id}/scheduled-actions/{action_id}".format(id=id, action_id=action_id), queryParams);
 
+    def get_scheduled_server_action(self, id, action_id, query_params={}):
+        return self.request("GET", "/servers/{id}/scheduled-actions/{action_id}".format(id=id, action_id=action_id), query_params);
 
-    def deleteScheduledServerAction(self, id, action_id, queryParams={}):
-        return self.request("DELETE", "/servers/{id}/scheduled-actions/{action_id}".format(id=id, action_id=action_id), queryParams);
 
+    def delete_scheduled_server_action(self, id, action_id, query_params={}):
+        return self.request("DELETE", "/servers/{id}/scheduled-actions/{action_id}".format(id=id, action_id=action_id), query_params);
 
-    def createS3Bucket(self, body, queryParams={}):
-        return self.request("POST", "/storage/s3/buckets".format(), queryParams, body);
 
+    def create_s3_bucket(self, body, query_params={}):
+        return self.request("POST", "/storage/s3/buckets", query_params, body);
 
-    def getS3Buckets(self, queryParams={}):
-        return self.request("GET", "/storage/s3/buckets".format(), queryParams);
 
+    def get_s3_buckets(self, query_params={}):
+        return self.request("GET", "/storage/s3/buckets", query_params);
 
-    def getPleskLicenseTypes(self, queryParams={}):
-        return self.request("GET", "/licenses/plesk-types".format(), queryParams);
 
+    def get_plesk_license_types(self, query_params={}):
+        return self.request("GET", "/licenses/plesk-types", query_params);
 
-    def getServerActions(self, id, queryParams={}):
-        return self.request("GET", "/servers/{id}/actions".format(id=id), queryParams);
 
+    def get_server_actions(self, id, query_params={}):
+        return self.request("GET", "/servers/{id}/actions".format(id=id), query_params);
 
-    def getServerStatus(self, id, queryParams={}):
-        return self.request("GET", "/servers/{id}/status".format(id=id), queryParams);
 
+    def get_server_status(self, id, query_params={}):
+        return self.request("GET", "/servers/{id}/status".format(id=id), query_params);
 
-    def createServerFirewallMember(self, id, body, queryParams={}):
-        return self.request("POST", "/server-firewalls/{id}/members".format(id=id), queryParams, body);
 
+    def create_server_firewall_member(self, id, body, query_params={}):
+        return self.request("POST", "/server-firewalls/{id}/members".format(id=id), query_params, body);
 
-    def getServerFirewallMembers(self, id, queryParams={}):
-        return self.request("GET", "/server-firewalls/{id}/members".format(id=id), queryParams);
 
+    def get_server_firewall_members(self, id, query_params={}):
+        return self.request("GET", "/server-firewalls/{id}/members".format(id=id), query_params);
 
-    def getServerPriceRange(self, id, queryParams={}):
-        return self.request("GET", "/server-price-ranges/{id}".format(id=id), queryParams);
 
+    def get_server_price_range(self, id, query_params={}):
+        return self.request("GET", "/server-price-ranges/{id}".format(id=id), query_params);
 
-    def createSSLOrganisation(self, body, queryParams={}):
-        return self.request("POST", "/ssl/organisations".format(), queryParams, body);
 
+    def create_s_s_l_organisation(self, body, query_params={}):
+        return self.request("POST", "/ssl/organisations", query_params, body);
 
-    def getSSLOrganisations(self, queryParams={}):
-        return self.request("GET", "/ssl/organisations".format(), queryParams);
 
+    def get_s_s_l_organisations(self, query_params={}):
+        return self.request("GET", "/ssl/organisations", query_params);
 
-    def getSSLType(self, id, queryParams={}):
-        return self.request("GET", "/ssl/types/{id}".format(id=id), queryParams);
 
+    def get_s_s_l_type(self, id, query_params={}):
+        return self.request("GET", "/ssl/types/{id}".format(id=id), query_params);
 
-    def getSSLTypes(self, queryParams={}):
-        return self.request("GET", "/ssl/types".format(), queryParams);
 
+    def get_s_s_l_types(self, query_params={}):
+        return self.request("GET", "/ssl/types", query_params);
 
-    def getServerVariantPrice(self, id, variant_id, queryParams={}):
-        return self.request("GET", "/server-price-ranges/{id}/variant-prices/{variant_id}".format(id=id, variant_id=variant_id), queryParams);
 
+    def get_server_variant_price(self, id, variant_id, query_params={}):
+        return self.request("GET", "/server-price-ranges/{id}/variant-prices/{variant_id}".format(id=id, variant_id=variant_id), query_params);
 
-    def deleteServerVariantPrice(self, id, variant_id, queryParams={}):
-        return self.request("DELETE", "/server-price-ranges/{id}/variant-prices/{variant_id}".format(id=id, variant_id=variant_id), queryParams);
 
+    def delete_server_variant_price(self, id, variant_id, query_params={}):
+        return self.request("DELETE", "/server-price-ranges/{id}/variant-prices/{variant_id}".format(id=id, variant_id=variant_id), query_params);
 
-    def updateServerVariantPrice(self, id, variant_id, body, queryParams={}):
-        return self.request("PUT", "/server-price-ranges/{id}/variant-prices/{variant_id}".format(id=id, variant_id=variant_id), queryParams, body);
 
+    def update_server_variant_price(self, id, variant_id, body, query_params={}):
+        return self.request("PUT", "/server-price-ranges/{id}/variant-prices/{variant_id}".format(id=id, variant_id=variant_id), query_params, body);
 
-    def deleteDNSRecord(self, name, id, queryParams={}):
-        return self.request("DELETE", "/dns/zones/{name}/records/{id}".format(name=name, id=id), queryParams);
 
+    def delete_d_n_s_record(self, name, id, query_params={}):
+        return self.request("DELETE", "/dns/zones/{name}/records/{id}".format(name=name, id=id), query_params);
 
-    def updateDNSRecord(self, name, id, body, queryParams={}):
-        return self.request("PUT", "/dns/zones/{name}/records/{id}".format(name=name, id=id), queryParams, body);
 
+    def update_d_n_s_record(self, name, id, body, query_params={}):
+        return self.request("PUT", "/dns/zones/{name}/records/{id}".format(name=name, id=id), query_params, body);
 
-    def getPleskLicense(self, id, queryParams={}):
-        return self.request("GET", "/licenses/plesk/{id}".format(id=id), queryParams);
 
+    def get_plesk_license(self, id, query_params={}):
+        return self.request("GET", "/licenses/plesk/{id}".format(id=id), query_params);
 
-    def updatePleskLicense(self, id, body, queryParams={}):
-        return self.request("PUT", "/licenses/plesk/{id}".format(id=id), queryParams, body);
 
+    def update_plesk_license(self, id, body, query_params={}):
+        return self.request("PUT", "/licenses/plesk/{id}".format(id=id), query_params, body);
 
-    def createServerTemplate(self, body, queryParams={}):
-        return self.request("POST", "/server-templates".format(), queryParams, body);
 
+    def create_server_template(self, body, query_params={}):
+        return self.request("POST", "/server-templates", query_params, body);
 
-    def getServerTemplates(self, queryParams={}):
-        return self.request("GET", "/server-templates".format(), queryParams);
 
+    def get_server_templates(self, query_params={}):
+        return self.request("GET", "/server-templates", query_params);
 
-    def getServerHost(self, id, queryParams={}):
-        return self.request("GET", "/server-hosts/{id}".format(id=id), queryParams);
 
+    def get_server_host(self, id, query_params={}):
+        return self.request("GET", "/server-hosts/{id}".format(id=id), query_params);
 
-    def createServerFirewallRule(self, id, body, queryParams={}):
-        return self.request("POST", "/server-firewalls/{id}/rules".format(id=id), queryParams, body);
 
+    def create_server_firewall_rule(self, id, body, query_params={}):
+        return self.request("POST", "/server-firewalls/{id}/rules".format(id=id), query_params, body);
 
-    def getServerFirewallRules(self, id, queryParams={}):
-        return self.request("GET", "/server-firewalls/{id}/rules".format(id=id), queryParams);
 
+    def get_server_firewall_rules(self, id, query_params={}):
+        return self.request("GET", "/server-firewalls/{id}/rules".format(id=id), query_params);
 
-    def createScheduledServerAction(self, id, body, queryParams={}):
-        return self.request("POST", "/servers/{id}/scheduled-actions".format(id=id), queryParams, body);
 
+    def create_scheduled_server_action(self, id, body, query_params={}):
+        return self.request("POST", "/servers/{id}/scheduled-actions".format(id=id), query_params, body);
 
-    def getScheduledServerActions(self, id, queryParams={}):
-        return self.request("GET", "/servers/{id}/scheduled-actions".format(id=id), queryParams);
 
+    def get_scheduled_server_actions(self, id, query_params={}):
+        return self.request("GET", "/servers/{id}/scheduled-actions".format(id=id), query_params);
 
-    def unscheduleDomainDelete(self, name, queryParams={}):
-        return self.request("POST", "/domains/{name}/unschedule-delete".format(name=name), queryParams);
 
+    def unschedule_domain_delete(self, name, query_params={}):
+        return self.request("POST", "/domains/{name}/unschedule-delete".format(name=name), query_params);
 
-    def stopServer(self, id, queryParams={}):
-        return self.request("POST", "/servers/{id}/stop".format(id=id), queryParams);
 
+    def stop_server(self, id, query_params={}):
+        return self.request("POST", "/servers/{id}/stop".format(id=id), query_params);
 
-    def createDNSZoneRecord(self, name, body, queryParams={}):
-        return self.request("POST", "/dns/zones/{name}/records".format(name=name), queryParams, body);
 
+    def create_d_n_s_zone_record(self, name, body, query_params={}):
+        return self.request("POST", "/dns/zones/{name}/records".format(name=name), query_params, body);
 
-    def getDNSZoneRecords(self, name, queryParams={}):
-        return self.request("GET", "/dns/zones/{name}/records".format(name=name), queryParams);
 
+    def get_d_n_s_zone_records(self, name, query_params={}):
+        return self.request("GET", "/dns/zones/{name}/records".format(name=name), query_params);
 
-    def updateDNSZoneRecords(self, name, body, queryParams={}):
-        return self.request("PUT", "/dns/zones/{name}/records".format(name=name), queryParams, body);
 
+    def update_d_n_s_zone_records(self, name, body, query_params={}):
+        return self.request("PUT", "/dns/zones/{name}/records".format(name=name), query_params, body);
 
-    def getServerVolume(self, id, queryParams={}):
-        return self.request("GET", "/server-volumes/{id}".format(id=id), queryParams);
 
+    def get_server_volume(self, id, query_params={}):
+        return self.request("GET", "/server-volumes/{id}".format(id=id), query_params);
 
-    def deleteServerVolume(self, id, queryParams={}):
-        return self.request("DELETE", "/server-volumes/{id}".format(id=id), queryParams);
 
+    def delete_server_volume(self, id, query_params={}):
+        return self.request("DELETE", "/server-volumes/{id}".format(id=id), query_params);
 
-    def updateServerVolume(self, id, body, queryParams={}):
-        return self.request("PUT", "/server-volumes/{id}".format(id=id), queryParams, body);
 
+    def update_server_volume(self, id, body, query_params={}):
+        return self.request("PUT", "/server-volumes/{id}".format(id=id), query_params, body);
 
-    def createServerNetwork(self, id, body, queryParams={}):
-        return self.request("POST", "/servers/{id}/networks".format(id=id), queryParams, body);
 
+    def create_server_network(self, id, body, query_params={}):
+        return self.request("POST", "/servers/{id}/networks".format(id=id), query_params, body);
 
-    def getServerNetworks(self, id, queryParams={}):
-        return self.request("GET", "/servers/{id}/networks".format(id=id), queryParams);
 
+    def get_server_networks(self, id, query_params={}):
+        return self.request("GET", "/servers/{id}/networks".format(id=id), query_params);
 
-    def createServerVariant(self, body, queryParams={}):
-        return self.request("POST", "/server-variants".format(), queryParams, body);
 
+    def create_server_variant(self, body, query_params={}):
+        return self.request("POST", "/server-variants", query_params, body);
 
-    def getServerVariants(self, queryParams={}):
-        return self.request("GET", "/server-variants".format(), queryParams);
 
+    def get_server_variants(self, query_params={}):
+        return self.request("GET", "/server-variants", query_params);
 
-    def getServerStorage(self, id, queryParams={}):
-        return self.request("GET", "/server-storages/{id}".format(id=id), queryParams);
 
+    def get_server_storage(self, id, query_params={}):
+        return self.request("GET", "/server-storages/{id}".format(id=id), query_params);
 
-    def getSSHKey(self, id, queryParams={}):
-        return self.request("GET", "/ssh-keys/{id}".format(id=id), queryParams);
 
+    def get_s_s_h_key(self, id, query_params={}):
+        return self.request("GET", "/ssh-keys/{id}".format(id=id), query_params);
 
-    def deleteSSHKey(self, id, queryParams={}):
-        return self.request("DELETE", "/ssh-keys/{id}".format(id=id), queryParams);
 
+    def delete_s_s_h_key(self, id, query_params={}):
+        return self.request("DELETE", "/ssh-keys/{id}".format(id=id), query_params);
 
-    def createServerPriceRangeAssignment(self, body, queryParams={}):
-        return self.request("POST", "/server-price-range-assignments".format(), queryParams, body);
 
+    def create_server_price_range_assignment(self, body, query_params={}):
+        return self.request("POST", "/server-price-range-assignments", query_params, body);
 
-    def getServerPriceRangeAssignments(self, queryParams={}):
-        return self.request("GET", "/server-price-range-assignments".format(), queryParams);
 
+    def get_server_price_range_assignments(self, query_params={}):
+        return self.request("GET", "/server-price-range-assignments", query_params);
 
-    def getAddresses(self, queryParams={}):
-        return self.request("GET", "/addresses".format(), queryParams);
 
+    def get_addresses(self, query_params={}):
+        return self.request("GET", "/addresses", query_params);
 
-    def getServerVariant(self, id, queryParams={}):
-        return self.request("GET", "/server-variants/{id}".format(id=id), queryParams);
 
+    def get_server_variant(self, id, query_params={}):
+        return self.request("GET", "/server-variants/{id}".format(id=id), query_params);
 
-    def deleteServerVariant(self, id, queryParams={}):
-        return self.request("DELETE", "/server-variants/{id}".format(id=id), queryParams);
 
+    def delete_server_variant(self, id, query_params={}):
+        return self.request("DELETE", "/server-variants/{id}".format(id=id), query_params);
 
-    def deleteS3AccessKeyGrant(self, access_key_id, id, queryParams={}):
-        return self.request("DELETE", "/storage/s3/access-keys/{access_key_id}/grants/{id}".format(access_key_id=access_key_id, id=id), queryParams);
 
+    def delete_s3_access_key_grant(self, access_key_id, id, query_params={}):
+        return self.request("DELETE", "/storage/s3/access-keys/{access_key_id}/grants/{id}".format(access_key_id=access_key_id, id=id), query_params);
 
-    def createServerMedia(self, body, queryParams={}):
-        return self.request("POST", "/server-medias".format(), queryParams, body);
 
+    def create_server_media(self, body, query_params={}):
+        return self.request("POST", "/server-medias", query_params, body);
 
-    def getServerMedias(self, queryParams={}):
-        return self.request("GET", "/server-medias".format(), queryParams);
 
+    def get_server_medias(self, query_params={}):
+        return self.request("GET", "/server-medias", query_params);
 
-    def getSubnet(self, id, queryParams={}):
-        return self.request("GET", "/subnets/{id}".format(id=id), queryParams);
 
+    def get_subnet(self, id, query_params={}):
+        return self.request("GET", "/subnets/{id}".format(id=id), query_params);
 
-    def deleteSubnet(self, id, queryParams={}):
-        return self.request("DELETE", "/subnets/{id}".format(id=id), queryParams);
 
+    def delete_subnet(self, id, query_params={}):
+        return self.request("DELETE", "/subnets/{id}".format(id=id), query_params);
 
-    def attachServerVolume(self, id, body, queryParams={}):
-        return self.request("POST", "/server-volumes/{id}/attach".format(id=id), queryParams, body);
 
+    def attach_server_volume(self, id, body, query_params={}):
+        return self.request("POST", "/server-volumes/{id}/attach".format(id=id), query_params, body);
 
-    def createPleskLicense(self, body, queryParams={}):
-        return self.request("POST", "/licenses/plesk".format(), queryParams, body);
 
+    def create_plesk_license(self, body, query_params={}):
+        return self.request("POST", "/licenses/plesk", query_params, body);
 
-    def getPleskLicenses(self, queryParams={}):
-        return self.request("GET", "/licenses/plesk".format(), queryParams);
 
+    def get_plesk_licenses(self, query_params={}):
+        return self.request("GET", "/licenses/plesk", query_params);
 
-    def getS3AccessKey(self, id, queryParams={}):
-        return self.request("GET", "/storage/s3/access-keys/{id}".format(id=id), queryParams);
 
+    def get_s3_access_key(self, id, query_params={}):
+        return self.request("GET", "/storage/s3/access-keys/{id}".format(id=id), query_params);
 
-    def deleteS3AccessKey(self, id, queryParams={}):
-        return self.request("DELETE", "/storage/s3/access-keys/{id}".format(id=id), queryParams);
 
+    def delete_s3_access_key(self, id, query_params={}):
+        return self.request("DELETE", "/storage/s3/access-keys/{id}".format(id=id), query_params);
 
-    def createS3AccessKey(self, body, queryParams={}):
-        return self.request("POST", "/storage/s3/access-keys".format(), queryParams, body);
 
+    def create_s3_access_key(self, body, query_params={}):
+        return self.request("POST", "/storage/s3/access-keys", query_params, body);
 
-    def getS3AccessKeys(self, queryParams={}):
-        return self.request("GET", "/storage/s3/access-keys".format(), queryParams);
 
+    def get_s3_access_keys(self, query_params={}):
+        return self.request("GET", "/storage/s3/access-keys", query_params);
 
-    def getDNSZone(self, name, queryParams={}):
-        return self.request("GET", "/dns/zones/{name}".format(name=name), queryParams);
 
+    def get_d_n_s_zone(self, name, query_params={}):
+        return self.request("GET", "/dns/zones/{name}".format(name=name), query_params);
 
-    def updateDNSZone(self, name, body, queryParams={}):
-        return self.request("PUT", "/dns/zones/{name}".format(name=name), queryParams, body);
 
+    def update_d_n_s_zone(self, name, body, query_params={}):
+        return self.request("PUT", "/dns/zones/{name}".format(name=name), query_params, body);
 
-    def createDomainHandle(self, body, queryParams={}):
-        return self.request("POST", "/domain-handles".format(), queryParams, body);
 
+    def create_domain_handle(self, body, query_params={}):
+        return self.request("POST", "/domain-handles", query_params, body);
 
-    def getDomainHandles(self, queryParams={}):
-        return self.request("GET", "/domain-handles".format(), queryParams);
 
+    def get_domain_handles(self, query_params={}):
+        return self.request("GET", "/domain-handles", query_params);
 
-    def getAddress(self, id, queryParams={}):
-        return self.request("GET", "/addresses/{id}".format(id=id), queryParams);
 
+    def get_address(self, id, query_params={}):
+        return self.request("GET", "/addresses/{id}".format(id=id), query_params);
 
-    def createSSLCertificate(self, body, queryParams={}):
-        return self.request("POST", "/ssl/certificates".format(), queryParams, body);
 
+    def create_s_s_l_certificate(self, body, query_params={}):
+        return self.request("POST", "/ssl/certificates", query_params, body);
 
-    def getSSLCertificates(self, queryParams={}):
-        return self.request("GET", "/ssl/certificates".format(), queryParams);
 
+    def get_s_s_l_certificates(self, query_params={}):
+        return self.request("GET", "/ssl/certificates", query_params);
 
-    def scheduleDomainDelete(self, name, body, queryParams={}):
-        return self.request("POST", "/domains/{name}/schedule-delete".format(name=name), queryParams, body);
 
+    def schedule_domain_delete(self, name, body, query_params={}):
+        return self.request("POST", "/domains/{name}/schedule-delete".format(name=name), query_params, body);
 
-    def getServerBackup(self, id, queryParams={}):
-        return self.request("GET", "/server-backups/{id}".format(id=id), queryParams);
 
+    def get_server_backup(self, id, query_params={}):
+        return self.request("GET", "/server-backups/{id}".format(id=id), query_params);
 
-    def deleteServerBackup(self, id, queryParams={}):
-        return self.request("DELETE", "/server-backups/{id}".format(id=id), queryParams);
 
+    def delete_server_backup(self, id, query_params={}):
+        return self.request("DELETE", "/server-backups/{id}".format(id=id), query_params);
 
-    def getDomainPricingList(self, queryParams={}):
-        return self.request("GET", "/pricing/domains".format(), queryParams);
 
+    def get_domain_pricing_list(self, query_params={}):
+        return self.request("GET", "/pricing/domains", query_params);
 
-    def getSSLCertificate(self, id, queryParams={}):
-        return self.request("GET", "/ssl/certificates/{id}".format(id=id), queryParams);
 
+    def get_s_s_l_certificate(self, id, query_params={}):
+        return self.request("GET", "/ssl/certificates/{id}".format(id=id), query_params);
 
-    def createSubnetAddress(self, id, body, queryParams={}):
-        return self.request("POST", "/subnets/{id}/addresses".format(id=id), queryParams, body);
 
+    def create_subnet_address(self, id, body, query_params={}):
+        return self.request("POST", "/subnets/{id}/addresses".format(id=id), query_params, body);
 
-    def createNetwork(self, body, queryParams={}):
-        return self.request("POST", "/networks".format(), queryParams, body);
 
+    def create_network(self, body, query_params={}):
+        return self.request("POST", "/networks", query_params, body);
 
-    def getNetworks(self, queryParams={}):
-        return self.request("GET", "/networks".format(), queryParams);
 
+    def get_networks(self, query_params={}):
+        return self.request("GET", "/networks", query_params);
 
-    def getDomainAuthinfo(self, name, queryParams={}):
-        return self.request("GET", "/domains/{name}/authinfo".format(name=name), queryParams);
 
+    def get_domain_authinfo(self, name, query_params={}):
+        return self.request("GET", "/domains/{name}/authinfo".format(name=name), query_params);
 
-    def removeDomainAuthinfo(self, name, queryParams={}):
-        return self.request("DELETE", "/domains/{name}/authinfo".format(name=name), queryParams);
 
+    def remove_domain_authinfo(self, name, query_params={}):
+        return self.request("DELETE", "/domains/{name}/authinfo".format(name=name), query_params);
 
-    def createServerStorage(self, body, queryParams={}):
-        return self.request("POST", "/server-storages".format(), queryParams, body);
 
+    def create_server_storage(self, body, query_params={}):
+        return self.request("POST", "/server-storages", query_params, body);
 
-    def getServerStorages(self, queryParams={}):
-        return self.request("GET", "/server-storages".format(), queryParams);
 
+    def get_server_storages(self, query_params={}):
+        return self.request("GET", "/server-storages", query_params);
 
-    def resizeServer(self, id, body, queryParams={}):
-        return self.request("POST", "/servers/{id}/resize".format(id=id), queryParams, body);
 
+    def resize_server(self, id, body, query_params={}):
+        return self.request("POST", "/servers/{id}/resize".format(id=id), query_params, body);
 
-    def restoreDomain(self, name, queryParams={}):
-        return self.request("POST", "/domains/{name}/restore".format(name=name), queryParams);
 
+    def restore_domain(self, name, query_params={}):
+        return self.request("POST", "/domains/{name}/restore".format(name=name), query_params);
 
-    def createSSLContact(self, body, queryParams={}):
-        return self.request("POST", "/ssl/contacts".format(), queryParams, body);
 
+    def create_s_s_l_contact(self, body, query_params={}):
+        return self.request("POST", "/ssl/contacts", query_params, body);
 
-    def getSSLContacts(self, queryParams={}):
-        return self.request("GET", "/ssl/contacts".format(), queryParams);
 
+    def get_s_s_l_contacts(self, query_params={}):
+        return self.request("GET", "/ssl/contacts", query_params);
 
-    def getServerMedia(self, id, queryParams={}):
-        return self.request("GET", "/server-medias/{id}".format(id=id), queryParams);
 
+    def get_server_media(self, id, query_params={}):
+        return self.request("GET", "/server-medias/{id}".format(id=id), query_params);
 
-    def deleteServerMedia(self, id, queryParams={}):
-        return self.request("DELETE", "/server-medias/{id}".format(id=id), queryParams);
 
+    def delete_server_media(self, id, query_params={}):
+        return self.request("DELETE", "/server-medias/{id}".format(id=id), query_params);
 
-    def createS3AccessKeyGrant(self, access_key_id, body, queryParams={}):
-        return self.request("POST", "/storage/s3/access-keys/{access_key_id}/grants".format(access_key_id=access_key_id), queryParams, body);
 
+    def create_s3_access_key_grant(self, access_key_id, body, query_params={}):
+        return self.request("POST", "/storage/s3/access-keys/{access_key_id}/grants".format(access_key_id=access_key_id), query_params, body);
 
-    def getS3AccessKeyGrants(self, access_key_id, queryParams={}):
-        return self.request("GET", "/storage/s3/access-keys/{access_key_id}/grants".format(access_key_id=access_key_id), queryParams);
 
+    def get_s3_access_key_grants(self, access_key_id, query_params={}):
+        return self.request("GET", "/storage/s3/access-keys/{access_key_id}/grants".format(access_key_id=access_key_id), query_params);
 
-    def getServerPriceRangeAssignment(self, id, queryParams={}):
-        return self.request("GET", "/server-price-range-assignments/{id}".format(id=id), queryParams);
 
+    def get_server_price_range_assignment(self, id, query_params={}):
+        return self.request("GET", "/server-price-range-assignments/{id}".format(id=id), query_params);
 
-    def deleteServerPriceRangeAssignment(self, id, queryParams={}):
-        return self.request("DELETE", "/server-price-range-assignments/{id}".format(id=id), queryParams);
 
+    def delete_server_price_range_assignment(self, id, query_params={}):
+        return self.request("DELETE", "/server-price-range-assignments/{id}".format(id=id), query_params);
 
-    def updateServerPriceRangeAssignment(self, id, body, queryParams={}):
-        return self.request("PUT", "/server-price-range-assignments/{id}".format(id=id), queryParams, body);
 
+    def update_server_price_range_assignment(self, id, body, query_params={}):
+        return self.request("PUT", "/server-price-range-assignments/{id}".format(id=id), query_params, body);
 
-    def getServerVNC(self, id, queryParams={}):
-        return self.request("GET", "/servers/{id}/vnc".format(id=id), queryParams);
 
+    def get_server_v_n_c(self, id, query_params={}):
+        return self.request("GET", "/servers/{id}/vnc".format(id=id), query_params);
 
-    def getNetwork(self, id, queryParams={}):
-        return self.request("GET", "/networks/{id}".format(id=id), queryParams);
 
+    def get_network(self, id, query_params={}):
+        return self.request("GET", "/networks/{id}".format(id=id), query_params);
 
-    def getLabels(self, queryParams={}):
-        return self.request("GET", "/labels".format(), queryParams);
 
+    def get_labels(self, query_params={}):
+        return self.request("GET", "/labels", query_params);
 
-    def getS3Bucket(self, id, queryParams={}):
-        return self.request("GET", "/storage/s3/buckets/{id}".format(id=id), queryParams);
 
+    def get_s3_bucket(self, id, query_params={}):
+        return self.request("GET", "/storage/s3/buckets/{id}".format(id=id), query_params);
 
-    def deleteS3Bucket(self, id, queryParams={}):
-        return self.request("DELETE", "/storage/s3/buckets/{id}".format(id=id), queryParams);
 
+    def delete_s3_bucket(self, id, query_params={}):
+        return self.request("DELETE", "/storage/s3/buckets/{id}".format(id=id), query_params);
 
-    def createDomain(self, body, queryParams={}):
-        return self.request("POST", "/domains".format(), queryParams, body);
 
+    def create_domain(self, body, query_params={}):
+        return self.request("POST", "/domains", query_params, body);
 
-    def getDomains(self, queryParams={}):
-        return self.request("GET", "/domains".format(), queryParams);
 
+    def get_domains(self, query_params={}):
+        return self.request("GET", "/domains", query_params);
 
-    def detachServerVolume(self, id, queryParams={}):
-        return self.request("POST", "/server-volumes/{id}/detach".format(id=id), queryParams);
 
+    def detach_server_volume(self, id, query_params={}):
+        return self.request("POST", "/server-volumes/{id}/detach".format(id=id), query_params);
 
-    def createServerVariantPrice(self, id, body, queryParams={}):
-        return self.request("POST", "/server-price-ranges/{id}/variant-prices".format(id=id), queryParams, body);
 
+    def create_server_variant_price(self, id, body, query_params={}):
+        return self.request("POST", "/server-price-ranges/{id}/variant-prices".format(id=id), query_params, body);
 
-    def getServerVariantPrices(self, id, queryParams={}):
-        return self.request("GET", "/server-price-ranges/{id}/variant-prices".format(id=id), queryParams);
+
+    def get_server_variant_prices(self, id, query_params={}):
+        return self.request("GET", "/server-price-ranges/{id}/variant-prices".format(id=id), query_params);
 
 
