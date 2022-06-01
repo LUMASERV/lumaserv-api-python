@@ -494,6 +494,10 @@ class CoreClient:
         return self.request("PUT", "/dns/zones/{name}".format(name=name), query_params, body);
 
 
+    def cancel_server_action(self, id, action_id, query_params={}):
+        return self.request("POST", "/servers/{id}/actions/{action_id}/cancel".format(id=id, action_id=action_id), query_params);
+
+
     def create_domain_handle(self, body, query_params={}):
         return self.request("POST", "/domain-handles", query_params, body);
 
@@ -526,16 +530,16 @@ class CoreClient:
         return self.request("DELETE", "/server-backups/{id}".format(id=id), query_params);
 
 
+    def update_server_backup(self, id, body, query_params={}):
+        return self.request("PUT", "/server-backups/{id}".format(id=id), query_params, body);
+
+
     def get_domain_pricing_list(self, query_params={}):
         return self.request("GET", "/pricing/domains", query_params);
 
 
     def get_s_s_l_certificate(self, id, query_params={}):
         return self.request("GET", "/ssl/certificates/{id}".format(id=id), query_params);
-
-
-    def create_subnet_address(self, id, body, query_params={}):
-        return self.request("POST", "/subnets/{id}/addresses".format(id=id), query_params, body);
 
 
     def create_network(self, body, query_params={}):
