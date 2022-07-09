@@ -2,7 +2,7 @@ import requests
 
 
 class BillingClient:
-    def __init__(self, api_key, base_url="https://billing.lumaserv.com"):
+    def __init__(self, api_key, base_url="https://api.lumaserv.com/billing"):
         self.base_url = base_url
         self.session = requests.Session()
         self.session.headers.update({
