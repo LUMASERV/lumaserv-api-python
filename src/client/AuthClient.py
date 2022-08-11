@@ -66,6 +66,10 @@ class AuthClient:
         return self.request("PUT", "/password-reset", query_params, body);
 
 
+    def reject_project_invite(self, id, query_params={}):
+        return self.request("POST", "/project-invites/{id}/reject".format(id=id), query_params);
+
+
     def insert_audit_log_entry(self, body, query_params={}):
         return self.request("POST", "/audit-log", query_params, body);
 
@@ -94,8 +98,20 @@ class AuthClient:
         return self.request("DELETE", "/tokens/{id}".format(id=id), query_params);
 
 
+    def delete_project_invite(self, id, query_params={}):
+        return self.request("DELETE", "/project-invites/{id}".format(id=id), query_params);
+
+
     def validate_token(self, token, query_params={}):
         return self.request("GET", "/validate/{token}".format(token=token), query_params);
+
+
+    def create_project_invite(self, body, query_params={}):
+        return self.request("POST", "/project-invites", query_params, body);
+
+
+    def get_project_invites(self, query_params={}):
+        return self.request("GET", "/project-invites", query_params);
 
 
     def add_project_member(self, id, body, query_params={}):
@@ -112,6 +128,10 @@ class AuthClient:
 
     def validate_self(self, query_params={}):
         return self.request("GET", "/validate/self", query_params);
+
+
+    def accept_project_invite(self, id, query_params={}):
+        return self.request("POST", "/project-invites/{id}/accept".format(id=id), query_params);
 
 
     def remove_project_member(self, id, user_id, query_params={}):

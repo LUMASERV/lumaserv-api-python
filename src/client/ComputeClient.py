@@ -74,6 +74,10 @@ class ComputeClient:
         return self.request("PUT", "/servers/{id}".format(id=id), query_params, body);
 
 
+    def get_server_actions(self, query_params={}):
+        return self.request("GET", "/server-actions", query_params);
+
+
     def get_server_storage_class(self, id, query_params={}):
         return self.request("GET", "/server-storage-classes/{id}".format(id=id), query_params);
 
@@ -82,12 +86,16 @@ class ComputeClient:
         return self.request("POST", "/servers/{id}/restart".format(id=id), query_params);
 
 
+    def mount_server_media(self, id, body, query_params={}):
+        return self.request("POST", "/servers/{id}/mount".format(id=id), query_params, body);
+
+
+    def unmount_server_media(self, id, query_params={}):
+        return self.request("DELETE", "/servers/{id}/mount".format(id=id), query_params);
+
+
     def restore_server(self, id, body, query_params={}):
         return self.request("POST", "/servers/{id}/restore".format(id=id), query_params, body);
-
-
-    def get_server_action(self, id, action_id, query_params={}):
-        return self.request("GET", "/servers/{id}/actions/{action_id}".format(id=id, action_id=action_id), query_params);
 
 
     def get_server_graph(self, id, query_params={}):
@@ -112,6 +120,10 @@ class ComputeClient:
 
     def delete_server_firewall_rule(self, id, rule_id, query_params={}):
         return self.request("DELETE", "/server-firewalls/{id}/rules/{rule_id}".format(id=id, rule_id=rule_id), query_params);
+
+
+    def update_server_firewall_rule(self, id, rule_id, body, query_params={}):
+        return self.request("PUT", "/server-firewalls/{id}/rules/{rule_id}".format(id=id, rule_id=rule_id), query_params, body);
 
 
     def create_server_host(self, body, query_params={}):
@@ -198,6 +210,10 @@ class ComputeClient:
         return self.request("DELETE", "/servers/{id}/scheduled-actions/{action_id}".format(id=id, action_id=action_id), query_params);
 
 
+    def update_scheduled_server_action(self, id, action_id, body, query_params={}):
+        return self.request("PUT", "/servers/{id}/scheduled-actions/{action_id}".format(id=id, action_id=action_id), query_params, body);
+
+
     def create_s3_bucket(self, body, query_params={}):
         return self.request("POST", "/storage/s3/buckets", query_params, body);
 
@@ -208,10 +224,6 @@ class ComputeClient:
 
     def get_plesk_license_types(self, query_params={}):
         return self.request("GET", "/licenses/plesk-types", query_params);
-
-
-    def get_server_actions(self, id, query_params={}):
-        return self.request("GET", "/servers/{id}/actions".format(id=id), query_params);
 
 
     def get_server_status(self, id, query_params={}):
@@ -228,6 +240,10 @@ class ComputeClient:
 
     def get_server_price_range(self, id, query_params={}):
         return self.request("GET", "/server-price-ranges/{id}".format(id=id), query_params);
+
+
+    def get_server_action(self, id, query_params={}):
+        return self.request("GET", "/server-actions/{id}".format(id=id), query_params);
 
 
     def get_server_variant_price(self, id, variant_id, query_params={}):
@@ -260,6 +276,10 @@ class ComputeClient:
 
     def get_server_host(self, id, query_params={}):
         return self.request("GET", "/server-hosts/{id}".format(id=id), query_params);
+
+
+    def update_server_host(self, id, body, query_params={}):
+        return self.request("PUT", "/server-hosts/{id}".format(id=id), query_params, body);
 
 
     def create_server_firewall_rule(self, id, body, query_params={}):
@@ -390,10 +410,6 @@ class ComputeClient:
         return self.request("GET", "/storage/s3/access-keys", query_params);
 
 
-    def cancel_server_action(self, id, action_id, query_params={}):
-        return self.request("POST", "/servers/{id}/actions/{action_id}/cancel".format(id=id, action_id=action_id), query_params);
-
-
     def get_address(self, id, query_params={}):
         return self.request("GET", "/addresses/{id}".format(id=id), query_params);
 
@@ -462,12 +478,24 @@ class ComputeClient:
         return self.request("GET", "/servers/{id}/vnc".format(id=id), query_params);
 
 
+    def cancel_server_action(self, id, query_params={}):
+        return self.request("POST", "/server-actions/{id}/cancel".format(id=id), query_params);
+
+
     def get_network(self, id, query_params={}):
         return self.request("GET", "/networks/{id}".format(id=id), query_params);
 
 
+    def update_network(self, id, body, query_params={}):
+        return self.request("PUT", "/networks/{id}".format(id=id), query_params, body);
+
+
     def get_labels(self, query_params={}):
         return self.request("GET", "/labels", query_params);
+
+
+    def resize_server_volume(self, id, body, query_params={}):
+        return self.request("POST", "/server-volumes/{id}/resize".format(id=id), query_params, body);
 
 
     def get_s3_bucket(self, id, query_params={}):
