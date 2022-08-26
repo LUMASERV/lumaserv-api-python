@@ -178,10 +178,6 @@ class ComputeClient:
         return self.request("GET", "/server-volumes", query_params);
 
 
-    def get_plesk_license_type(self, id, query_params={}):
-        return self.request("GET", "/licenses/plesk-types/{id}".format(id=id), query_params);
-
-
     def create_server_storage_class(self, body, query_params={}):
         return self.request("POST", "/server-storage-classes", query_params, body);
 
@@ -222,10 +218,6 @@ class ComputeClient:
         return self.request("GET", "/storage/s3/buckets", query_params);
 
 
-    def get_plesk_license_types(self, query_params={}):
-        return self.request("GET", "/licenses/plesk-types", query_params);
-
-
     def get_server_status(self, id, query_params={}):
         return self.request("GET", "/servers/{id}/status".format(id=id), query_params);
 
@@ -256,14 +248,6 @@ class ComputeClient:
 
     def update_server_variant_price(self, id, variant_id, body, query_params={}):
         return self.request("PUT", "/server-price-ranges/{id}/variant-prices/{variant_id}".format(id=id, variant_id=variant_id), query_params, body);
-
-
-    def get_plesk_license(self, id, query_params={}):
-        return self.request("GET", "/licenses/plesk/{id}".format(id=id), query_params);
-
-
-    def update_plesk_license(self, id, body, query_params={}):
-        return self.request("PUT", "/licenses/plesk/{id}".format(id=id), query_params, body);
 
 
     def create_server_template(self, body, query_params={}):
@@ -384,14 +368,6 @@ class ComputeClient:
 
     def attach_server_volume(self, id, body, query_params={}):
         return self.request("POST", "/server-volumes/{id}/attach".format(id=id), query_params, body);
-
-
-    def create_plesk_license(self, body, query_params={}):
-        return self.request("POST", "/licenses/plesk", query_params, body);
-
-
-    def get_plesk_licenses(self, query_params={}):
-        return self.request("GET", "/licenses/plesk", query_params);
 
 
     def get_s3_access_key(self, id, query_params={}):
