@@ -18,11 +18,11 @@ class AddonClient:
         return r.json()
 
 
-    def create_s_s_l_certificate(self, body, query_params={}):
+    def create_ssl_certificate(self, body, query_params={}):
         return self.request("POST", "/ssl/certificates", query_params, body);
 
 
-    def get_s_s_l_certificates(self, query_params={}):
+    def get_ssl_certificates(self, query_params={}):
         return self.request("GET", "/ssl/certificates", query_params);
 
 
@@ -34,43 +34,43 @@ class AddonClient:
         return self.request("GET", "/search", query_params);
 
 
-    def get_s_s_l_certificate(self, id, query_params={}):
+    def get_ssl_certificate(self, id, query_params={}):
         return self.request("GET", "/ssl/certificates/{id}".format(id=id), query_params);
 
 
-    def get_s_s_l_organisation(self, id, query_params={}):
+    def get_ssl_organisation(self, id, query_params={}):
         return self.request("GET", "/ssl/organisations/{id}".format(id=id), query_params);
 
 
-    def delete_s_s_l_organisation(self, id, query_params={}):
+    def delete_ssl_organisation(self, id, query_params={}):
         return self.request("DELETE", "/ssl/organisations/{id}".format(id=id), query_params);
 
 
-    def create_s_s_l_contact(self, body, query_params={}):
+    def create_ssl_contact(self, body, query_params={}):
         return self.request("POST", "/ssl/contacts", query_params, body);
 
 
-    def get_s_s_l_contacts(self, query_params={}):
+    def get_ssl_contacts(self, query_params={}):
         return self.request("GET", "/ssl/contacts", query_params);
 
 
-    def create_s_s_l_organisation(self, body, query_params={}):
+    def create_ssl_organisation(self, body, query_params={}):
         return self.request("POST", "/ssl/organisations", query_params, body);
 
 
-    def get_s_s_l_organisations(self, query_params={}):
+    def get_ssl_organisations(self, query_params={}):
         return self.request("GET", "/ssl/organisations", query_params);
 
 
-    def get_s_s_l_type(self, id, query_params={}):
+    def get_ssl_type(self, id, query_params={}):
         return self.request("GET", "/ssl/types/{id}".format(id=id), query_params);
 
 
-    def get_s_s_l_contact(self, id, query_params={}):
+    def get_ssl_contact(self, id, query_params={}):
         return self.request("GET", "/ssl/contacts/{id}".format(id=id), query_params);
 
 
-    def delete_s_s_l_contact(self, id, query_params={}):
+    def delete_ssl_contact(self, id, query_params={}):
         return self.request("DELETE", "/ssl/contacts/{id}".format(id=id), query_params);
 
 
@@ -82,7 +82,7 @@ class AddonClient:
         return self.request("GET", "/licenses/plesk", query_params);
 
 
-    def get_s_s_l_types(self, query_params={}):
+    def get_ssl_types(self, query_params={}):
         return self.request("GET", "/ssl/types", query_params);
 
 

@@ -18,11 +18,11 @@ class ComputeClient:
         return r.json()
 
 
-    def create_s_s_h_key(self, body, query_params={}):
+    def create_ssh_key(self, body, query_params={}):
         return self.request("POST", "/ssh-keys", query_params, body);
 
 
-    def get_s_s_h_keys(self, query_params={}):
+    def get_ssh_keys(self, query_params={}):
         return self.request("GET", "/ssh-keys", query_params);
 
 
@@ -318,11 +318,11 @@ class ComputeClient:
         return self.request("GET", "/server-storages/{id}".format(id=id), query_params);
 
 
-    def get_s_s_h_key(self, id, query_params={}):
+    def get_ssh_key(self, id, query_params={}):
         return self.request("GET", "/ssh-keys/{id}".format(id=id), query_params);
 
 
-    def delete_s_s_h_key(self, id, query_params={}):
+    def delete_ssh_key(self, id, query_params={}):
         return self.request("DELETE", "/ssh-keys/{id}".format(id=id), query_params);
 
 
@@ -450,7 +450,7 @@ class ComputeClient:
         return self.request("PUT", "/server-price-range-assignments/{id}".format(id=id), query_params, body);
 
 
-    def get_server_v_n_c(self, id, query_params={}):
+    def get_server_vnc(self, id, query_params={}):
         return self.request("GET", "/servers/{id}/vnc".format(id=id), query_params);
 
 

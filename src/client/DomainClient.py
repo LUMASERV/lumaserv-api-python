@@ -34,15 +34,15 @@ class DomainClient:
         return self.request("POST", "/domains/{name}/unschedule-delete".format(name=name), query_params);
 
 
-    def create_d_n_s_zone_record(self, name, body, query_params={}):
+    def create_dns_zone_record(self, name, body, query_params={}):
         return self.request("POST", "/dns/zones/{name}/records".format(name=name), query_params, body);
 
 
-    def get_d_n_s_zone_records(self, name, query_params={}):
+    def get_dns_zone_records(self, name, query_params={}):
         return self.request("GET", "/dns/zones/{name}/records".format(name=name), query_params);
 
 
-    def update_d_n_s_zone_records(self, name, body, query_params={}):
+    def update_dns_zone_records(self, name, body, query_params={}):
         return self.request("PUT", "/dns/zones/{name}/records".format(name=name), query_params, body);
 
 
@@ -70,15 +70,15 @@ class DomainClient:
         return self.request("POST", "/domains/{name}/restore".format(name=name), query_params);
 
 
-    def get_d_n_s_zones(self, query_params={}):
+    def get_dns_zones(self, query_params={}):
         return self.request("GET", "/dns/zones", query_params);
 
 
-    def delete_d_n_s_record(self, name, id, query_params={}):
+    def delete_dns_record(self, name, id, query_params={}):
         return self.request("DELETE", "/dns/zones/{name}/records/{id}".format(name=name, id=id), query_params);
 
 
-    def update_d_n_s_record(self, name, id, body, query_params={}):
+    def update_dns_record(self, name, id, body, query_params={}):
         return self.request("PUT", "/dns/zones/{name}/records/{id}".format(name=name, id=id), query_params, body);
 
 
@@ -90,11 +90,11 @@ class DomainClient:
         return self.request("GET", "/domains/{name}/verification".format(name=name), query_params);
 
 
-    def get_d_n_s_zone(self, name, query_params={}):
+    def get_dns_zone(self, name, query_params={}):
         return self.request("GET", "/dns/zones/{name}".format(name=name), query_params);
 
 
-    def update_d_n_s_zone(self, name, body, query_params={}):
+    def update_dns_zone(self, name, body, query_params={}):
         return self.request("PUT", "/dns/zones/{name}".format(name=name), query_params, body);
 
 
