@@ -13,7 +13,7 @@ class AddonClient:
 
     def request(self, method, path, params={}, body={}):
         r = self.session.request(method, self.base_url + path, data=data, params=params)
-        f(r.status_code < 200 or (r.status_code >= 300 and r.status_code < 400):
+        if(r.status_code < 200 or (r.status_code >= 300 and r.status_code < 400):
             raise Exception("Status code is " + r.status_code + "!")
         return r.json()
 
