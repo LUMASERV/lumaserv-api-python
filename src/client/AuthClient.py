@@ -66,6 +66,10 @@ class AuthClient:
         return self.request("PUT", "/password-reset", query_params, body)
 
 
+    def change_email(self, body, query_params={}):
+        return self.request("PUT", "/email-change", query_params, body)
+
+
     def reject_project_invite(self, id, query_params={}):
         return self.request("POST", "/project-invites/{id}/reject".format(id=id), query_params)
 
@@ -88,6 +92,10 @@ class AuthClient:
 
     def get_country(self, code, query_params={}):
         return self.request("GET", "/countries/{code}".format(code=code), query_params)
+
+
+    def change_password(self, body, query_params={}):
+        return self.request("PUT", "/password-change", query_params, body)
 
 
     def get_token(self, id, query_params={}):

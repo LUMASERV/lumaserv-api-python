@@ -18,14 +18,6 @@ class BillingClient:
         return r.json()
 
 
-    def get_payment_reminder(self, id, query_params={}):
-        return self.request("GET", "/payment-reminders/{id}".format(id=id), query_params)
-
-
-    def update_payment_reminder(self, id, body, query_params={}):
-        return self.request("PUT", "/payment-reminders/{id}".format(id=id), query_params, body)
-
-
     def create_debit_mandate(self, body, query_params={}):
         return self.request("POST", "/debit-mandates", query_params, body)
 
@@ -58,16 +50,8 @@ class BillingClient:
         return self.request("PUT", "/billing-positions/{id}".format(id=id), query_params, body)
 
 
-    def get_bank_transactions(self, query_params={}):
-        return self.request("GET", "/bank-transactions", query_params)
-
-
     def get_debit_mandate(self, id, query_params={}):
         return self.request("GET", "/debit-mandates/{id}".format(id=id), query_params)
-
-
-    def get_bank_transaction(self, id, query_params={}):
-        return self.request("GET", "/bank-transactions/{id}".format(id=id), query_params)
 
 
     def create_billing_position(self, body, query_params={}):
@@ -172,13 +156,5 @@ class BillingClient:
 
     def update_service_contract(self, id, body, query_params={}):
         return self.request("PUT", "/service-contracts/{id}".format(id=id), query_params, body)
-
-
-    def create_payment_reminder(self, body, query_params={}):
-        return self.request("POST", "/payment-reminders", query_params, body)
-
-
-    def get_payment_reminders(self, query_params={}):
-        return self.request("GET", "/payment-reminders", query_params)
 
 
