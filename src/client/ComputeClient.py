@@ -13,7 +13,7 @@ class ComputeClient:
 
     def request(self, method, path, params={}, body={}):
         r = self.session.request(method, self.base_url + path, data=body, params=params)
-        if(r.status_code < 200 or (r.status_code >= 300 and r.status_code < 400):
+        if r.status_code < 200 or (r.status_code >= 300 and r.status_code < 400):
             raise Exception("Status code is " + r.status_code + "!")
         return r.json()
 
@@ -324,6 +324,10 @@ class ComputeClient:
 
     def delete_ssh_key(self, id, query_params={}):
         return self.request("DELETE", "/ssh-keys/{id}".format(id=id), query_params)
+
+
+    def update_ssh_key(self, id, body, query_params={}):
+        return self.request("PUT", "/ssh-keys/{id}".format(id=id), query_params, body)
 
 
     def create_server_price_range_assignment(self, body, query_params={}):
