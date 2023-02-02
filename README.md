@@ -2,4 +2,4 @@
 Python client for the LUMASERV API
 
 ## Install
-`python3 -m pip install --index-url https://test.pypi.org/simple/ lumaserv-api-client`
+`python3 -m pip install lumaserv-api-client`
