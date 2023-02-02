@@ -12,7 +12,7 @@ class AuthClient:
 
 
     def request(self, method, path, params={}, body={}):
-        r = self.session.request(method, self.base_url + path, data=body, params=params)
+        r = self.session.request(method, self.base_url + path, json=body, params=params)
         if r.status_code < 200 or (r.status_code >= 300 and r.status_code < 400):
             raise Exception("Status code is " + r.status_code + "!")
         return r.json()
