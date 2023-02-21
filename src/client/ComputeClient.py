@@ -250,6 +250,10 @@ class ComputeClient:
         return self.request("PUT", "/server-price-ranges/{id}/variant-prices/{variant_id}".format(id=id, variant_id=variant_id), query_params, body)
 
 
+    def get_server_volume_pricing(self, query_params={}):
+        return self.request("GET", "/pricing/server-volumes", query_params)
+
+
     def create_server_template(self, body, query_params={}):
         return self.request("POST", "/server-templates", query_params, body)
 
@@ -274,12 +278,24 @@ class ComputeClient:
         return self.request("GET", "/server-firewalls/{id}/rules".format(id=id), query_params)
 
 
+    def create_server_price_range_volume_price(self, id, body, query_params={}):
+        return self.request("POST", "/server-price-ranges/{id}/volume-prices".format(id=id), query_params, body)
+
+
+    def get_server_price_range_volume_prices(self, id, query_params={}):
+        return self.request("GET", "/server-price-ranges/{id}/volume-prices".format(id=id), query_params)
+
+
     def create_scheduled_server_action(self, id, body, query_params={}):
         return self.request("POST", "/servers/{id}/scheduled-actions".format(id=id), query_params, body)
 
 
     def get_scheduled_server_actions(self, id, query_params={}):
         return self.request("GET", "/servers/{id}/scheduled-actions".format(id=id), query_params)
+
+
+    def get_server_pricing(self, query_params={}):
+        return self.request("GET", "/pricing/servers", query_params)
 
 
     def stop_server(self, id, query_params={}):
@@ -372,6 +388,18 @@ class ComputeClient:
 
     def attach_server_volume(self, id, body, query_params={}):
         return self.request("POST", "/server-volumes/{id}/attach".format(id=id), query_params, body)
+
+
+    def get_server_price_range_volume_price(self, id, class_id, query_params={}):
+        return self.request("GET", "/server-price-ranges/{id}/volume-prices/{class_id}".format(id=id, class_id=class_id), query_params)
+
+
+    def delete_server_price_range_volume_price(self, id, class_id, query_params={}):
+        return self.request("DELETE", "/server-price-ranges/{id}/volume-prices/{class_id}".format(id=id, class_id=class_id), query_params)
+
+
+    def update_server_price_range_volume_price(self, id, class_id, body, query_params={}):
+        return self.request("PUT", "/server-price-ranges/{id}/volume-prices/{class_id}".format(id=id, class_id=class_id), query_params, body)
 
 
     def get_s3_access_key(self, id, query_params={}):
